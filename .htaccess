@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Nếu truy cập vào example.com/public thì giữ nguyên
+RewriteRule ^public($|/.*) - [L]
+
+# Nếu truy cập vào root URL (example.com/) thì chuyển hướng đến thư mục public/
+RewriteRule ^$ public/ [L]

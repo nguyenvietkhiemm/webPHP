@@ -1,0 +1,78 @@
+<div class="modal fade" id="add-modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Thông tin sản phẩm mới</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>ID sản phẩm</label>
+                    <input type="text" class="form-control" id = "product-id" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Tên sản phẩm</label>
+                    <input type="text" class="form-control" id = "product-name">
+                </div>
+                <div class="form-group">
+                    <label>Giá</label>
+                    <input type="text" class="form-control" id = "product-price">
+                </div>
+                <div class="form-group">
+                    <label>Số lượng</label>
+                    <input type="text" class="form-control" id = "product-count">
+                </div>
+                <div class="form-group">
+                    <label>Loại hàng hóa</label>
+                    <input type="text" class="form-control" id = "product-category">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id = "save-add">Lưu sản phẩm</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#save-add').on('click', function() {
+            var name = $('#add-modal #product-name').val();
+            var price = $('#add-modal #product-price').val();
+            var count = $('#add-modal #product-count').val();
+            var category = $('#add-modal #product-category').val();
+            $.ajax({
+                url: '',
+                type: 'POST',
+                data: JSON.stringify({
+                    name: name,
+                    price: price,
+                    count: count,
+                    category: category
+                }),
+                contentType: 'application/json',
+                success: async function(response) {
+                    await Swal.fire({
+                        title: 'Thành công',
+                        text: 'Dữ liệu về mặt hàng đã được thêm thành công',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    });
+
+                    location.reload();
+                },
+                error: async function(xhr, status, error) {
+                    await Swal.fire({
+                        title: 'Lỗi',
+                        text: 'Dữ liệu về mặt hàng đã gặp lỗi khi thêm: ' + error,
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+
+                    location.reload();
+                }
+            });
+        });
+    });
+</script>

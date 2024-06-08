@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Chuyển hướng tất cả các yêu cầu đến index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+# Bảo vệ các tệp nhạy cảm
+<FilesMatch "\.(htaccess|htpasswd|ini|phar|sh|conf|cnf|log|bak|swp|dist)$">
+    Require all denied
+</FilesMatch>
