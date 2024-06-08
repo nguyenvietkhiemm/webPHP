@@ -18,74 +18,9 @@
 <body>
     <!-- Sidebar -->
     <div id="wrapper">
-        <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="./home">
-                <div class="sidebar-brand-text mx-2">A Little Daisy</div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="./home">
-                <i class="fa-solid fa-house fa-lg"></i>
-                    <span>Tổng quan</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Quản lí
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="./management-item">
-                <i class="fa-solid fa-box-archive fa-lg"></i>
-                    <span>Quản lí kho hàng</span>
-                </a>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="./management-order">
-                <i class="fa-solid fa-money-bills fa-lg"></i>
-                    <span>Quản lí đơn hàng</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="./management-bill">
-                <i class="fa-solid fa-money-bills fa-lg"></i>
-                    <span>Quản lí hóa đơn</span>
-                </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Thêm
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
-                <i class="fa-solid fa-shop fa-lg"></i>
-                    <span>Cửa hàng</span>
-                </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-        </ul>
-        <!-- End of Sidebar -->
+        <?php
+            include("partials/sidebar.html"); 
+        ?>
 
         <div id="content-wrapper" class="d-flex flex-column">
             <footer class="sticky-footer bg-white">
